@@ -1,32 +1,31 @@
-# أسرار الحضارات | Civilization Secrets
+# Civilization Secrets | أسرار الحضارات
 
-## Actual deployment status
-This repository now contains a cloud smoke-test workflow for a genuine AI-generated moving video with Arabic synthetic narration, Arabic overlay and explicit imaginative-reconstruction disclosure.
+A cloud pipeline for Arabic Shorts built from real AI-generated moving scenes, with exact-version owner review and separate private-upload/publication approvals.
 
-The first test is about five seconds, 360x640 source scaled to 1080x1920. It is not a completed 30–60-second episode. Voice is offline eSpeak Arabic and requires human listening review.
+## Verified result
+The cloud renderer produced a playable MP4 with actual AI motion, offline Arabic narration, shaped Arabic captions and an imaginative-reconstruction disclosure.
+Latest production: https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39487995741
+Safety CI: https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39487995687 — 14 tests passed.
 
-Run **AI Motion Production Test** in Actions, then download review-RUN_ID. Watch video.mp4 and review script, sources, media provenance, QA and manifest files. No YouTube upload or public publication occurs. Workflow success never means user approval.
+The current sample is approximately five seconds. Its generated source is 360x640, scaled to a 1080x1920 H.264/AAC export. This does not mean native 1080p generation. The sample is ineligible for YouTube upload. Listen to the synthetic Arabic voice and check visual quality before accepting a future episode.
 
-Source lives in src/pipeline.py, with dependencies in requirements.txt and scene provenance in data/ai-scenes.json. This currently assembles supplied generated clips; a daily AI generation provider is not configured. Episode mode refuses the demo packet and requires at least four distinct AI motion clips and a 30–60-second total.
+## Android operation
+Open Actions, select the successful production run and download review-RUN_ID under Artifacts. Extract the ZIP in Files, watch video.mp4 and inspect script.json, sources.json, media.json and quality.json. Artifacts are retained for three days.
 
-## Outstanding work
-- Recover/merge the previously prepared full research/review/publish code from the original workspace.
-- Configure a verified AI generation provider with an approved budget. No permanent free daily video-generation service is assumed.
-- Add independently researched topics and multiple generated scenes.
-- Exercise the implemented owner approval/rejection and private-upload/publication workflows after a real episode and YouTube authorization exist.
-- Create/authorize the YouTube channel and configure secrets securely.
-- Implement analytics and test real YouTube integration.
+Review video accepts an exact production run ID and manifest SHA256, then records the owner's approve/reject decision. Rejected versions cannot be reapproved. Smoke demos cannot be approved for upload.
 
-## Cost controls
-Uses standard public GitHub-hosted Ubuntu compute; no paid AI generation API is called by this workflow. Three-day artifact retention; upload size capped at 50 MiB and repository artifacts checked against a conservative 180 MiB threshold before rendering. These controls do not inspect account-wide storage. No billing settings, secrets, repository visibility or authentication protections are changed.
+Publish approved video requires an approved full episode, channel OAuth, and UPLOAD:RUN_ID:MANIFEST_SHA256 to upload PRIVATE. Making public requires a second explicit confirmation PUBLIC:YOUTUBE_ID. Production never calls YouTube. An ambiguous upload remains upload_in_progress until reconciled in Studio.
 
-No YouTube integration has been tested. Do not treat this smoke test as a finished autonomous daily channel.
+## Current limits and remaining work
+- One AI motion demo clip and one curated Rosetta Stone historical topic are available.
+- Episode mode needs distinct generated clips, matching sourced narration and 30–60 seconds total.
+- AI clip generation is not automated. The connected Free generation account has no credits remaining. No sustainable free daily provider is assumed.
+- Research/script generation use a finite grounded editorial queue. Live discovery and a generative script model are not configured.
+- Daily production readiness reports the blocker; it does not generate daily videos.
+- YouTube channel setup, OAuth and actual upload/privacy tests are outstanding.
+- Analytics supports available views/likes/comments after authorization. Retention remains null.
 
-## Verified cloud execution
-The first AI motion smoke test succeeded:
-https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39487278325
+Source modules, workflows and Android/OAuth guides are included. See docs/acceptance.md for actual execution evidence and docs/architecture.md for trust boundaries.
 
-## Owner review and safe publishing
-Review video records the exact run/hash approval or rejection on channel-state. Smoke demos cannot be approved for upload. Publish approved video supports owner-confirmed private upload and separate public publication; it remains blocked until YouTube OAuth and a real approved full episode exist. Channel analytics reports only real available data. See docs/acceptance.md for evidence and remaining tests.
-
-The daily workflow is a readiness report only. Daily AI generation is disabled. Do not enable a provider or start paid generation without explicit budget authorization.
+## Cost and privacy
+The repository remains public. Treat draft artifacts and ledger records as public repository material. Standard public Ubuntu runners are used. Artifacts have a repository storage guard and three-day retention, but account-wide storage is not inspected. No paid AI generation, trial, subscription, billing change or new browser run was initiated by these workflows. Keep provider spending disabled until explicitly authorized. Secrets belong only in GitHub Actions Secrets; do not paste credentials into chat.

@@ -90,6 +90,8 @@ def render(scenes,mode):
         fetch_clip(s["url"],clip)
         info=probe(clip)
         seconds=float(info["format"]["duration"])
+        native=next(x for x in info["streams"] if x["codec_type"]=="video")
+        s["native_width"]=native["width"];s["native_height"]=native["height"];s["duration_seconds"]=seconds
         if not 1<=seconds<=20:raise ValueError("Unexpected clip duration")
         voice(s["narration"],wav)
         spoken=float(probe(wav)["format"]["duration"])
@@ -119,23 +121,43 @@ def main():
     mode=os.environ.get("PRODUCTION_MODE","smoke") or "smoke"
     packet=json.loads(Path("data/ai-scenes.json").read_text())
     scenes=packet["scenes"]
+    episode_script=None
+    state=None
     if mode=="episode":
         if packet.get("demo",True):raise RuntimeError("Only one demo scene exists. A full episode needs new sourced AI clips; generation provider not configured.")
         if len(scenes)<4 or len({s["url"] for s in scenes})!=len(scenes):raise RuntimeError("Need at least four distinct AI motion scenes")
+        from .state import State
+        from .research import select
+        from .generate_script import generate
+        state=State()
+        index,_=state.get("production/index")
+        topic=select((index or {}).get("used",{}),packet.get("topic_id",""))
+        episode_script=generate(topic)
+        if len(scenes)!=len(episode_script["scenes"]):raise ValueError("Each narration scene needs its own generated clip")
+        scenes=[{**s,"narration":n} for s,n in zip(scenes,episode_script["scenes"])]
+        packet["title"]=episode_script["title"]
+        packet["sources"]=topic["sources"]
     else: scenes=scenes[:1]
     total=render(scenes,mode)
-    dump("script.json",{"title":packet["title"],"narration":[s["narration"] for s in scenes],"mode":mode})
+    dump("script.json",{**(episode_script or {}),"title":packet["title"],"narration":[s["narration"] for s in scenes],"mode":mode})
     dump("sources.json",packet["sources"])
-    dump("media.json",{"kind":"ai_generated_motion","scenes":scenes,"disclosure":"Imaginative reconstruction; not historical footage","native_resolution":"360x640 for the initial test; scaled output is not native 1080p"})
-    (OUT/"review.txt").write_text("اختبار تقني فقط. شاهد الحركة واستمع للنطق العربي. لا توجد موافقة رفع أو نشر.\nلا يوجد اتصال بيوتيوب في هذا التشغيل.\n",encoding="utf-8")
+    dump("media.json",{"kind":"ai_generated_motion","scenes":scenes,"disclosure":"Imaginative reconstruction; not historical footage","resolution_note":"Inspect each scene native_width/native_height; 1080x1920 export can be upscaled"})
+    (OUT/"review.txt").write_text(("اختبار تقني قصير فقط.\n" if mode=="smoke" else "حلقة كاملة تنتظر المراجعة.\n")+"شاهد الحركة واستمع للنطق العربي وراجع المصادر. لا توجد موافقة رفع أو نشر.\nلا يوجد اتصال بيوتيوب في هذا التشغيل.\n",encoding="utf-8")
     names=["video.mp4","preview.jpg","script.json","sources.json","media.json","quality.json","review.txt"]
-    manifest={"run_id":os.environ.get("GITHUB_RUN_ID"),"commit":os.environ.get("GITHUB_SHA"),"mode":mode,"demo":mode=="smoke","eligible_for_publication":False,"approval":"pending","synthetic_media":True,"files":{n:hashlib.sha256((OUT/n).read_bytes()).hexdigest() for n in names}}
+    manifest={"run_id":os.environ.get("GITHUB_RUN_ID"),"commit":os.environ.get("GITHUB_SHA"),"mode":mode,"demo":mode=="smoke","production_quality_eligible":mode=="episode","approval":"pending","synthetic_media":True,"files":{n:hashlib.sha256((OUT/n).read_bytes()).hexdigest() for n in names}}
+    if state:
+        def remember(old):
+            old=old or {"used":{}}
+            if topic["id"] in old["used"]:raise ValueError("Topic already produced")
+            old["used"][topic["id"]]=os.environ["GITHUB_RUN_ID"]
+            return old
+        state.update("production/index",remember)
     dump("manifest.json",manifest)
     sha=hashlib.sha256((OUT/"manifest.json").read_bytes()).hexdigest()
     bundle=OUT/"bundle";bundle.mkdir(exist_ok=True)
     import shutil
     for n in names+["manifest.json"]:shutil.copy2(OUT/n,bundle/n)
-    summary="## AI motion test ready for human review\n\nMode: "+mode+"\n\nDuration: "+str(total)+" seconds\n\nManifest SHA256: "+sha+"\n\nThis is a 5-second technical sample, not an accepted full episode. Download the review artifact and watch video.mp4. No YouTube API is called.\n"
+    summary="## AI motion test ready for human review\n\nMode: "+mode+"\n\nDuration: "+str(total)+" seconds\n\nManifest SHA256: "+sha+"\n\nHuman review is required. Smoke mode is only a short technical sample. Download the review artifact and watch video.mp4. No YouTube API is called.\n"
     with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f:f.write(summary)
 
 if __name__=="__main__":main()

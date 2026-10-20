@@ -1,0 +1,51 @@
+[
+  {
+    "id": "rosetta-three-scripts",
+    "title": "حجر رشيد: ثلاث كتابات فتحت باب التاريخ",
+    "sources": [
+      {
+        "publisher": "British Museum",
+        "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+      },
+      {
+        "publisher": "Smarthistory",
+        "url": "https://smarthistory.org/the-rosetta-stone/"
+      }
+    ],
+    "claims": [
+      {
+        "id": "c1",
+        "kind": "fact",
+        "source_indices": [
+          0
+        ],
+        "text": "The decree concerns Ptolemy V and dates to 196 BC."
+      },
+      {
+        "id": "c2",
+        "kind": "fact",
+        "source_indices": [
+          0,
+          1
+        ],
+        "text": "The inscription uses hieroglyphic, demotic and Greek scripts."
+      },
+      {
+        "id": "c3",
+        "kind": "fact",
+        "source_indices": [
+          1
+        ],
+        "text": "Comparison of the scripts aided decipherment."
+      }
+    ],
+    "narration": [
+      "كيف يساعد حجر واحد في قراءة تاريخ حضارة؟",
+      "هذا هو حجر رشيد، قطعة أثرية تحمل مفتاحاً لفهم الكتابة المصرية القديمة.",
+      "يحمل الحجر مرسوماً من عهد الملك بطليموس الخامس، يعود إلى سنة مئة وست وتسعين قبل الميلاد.",
+      "المفاجأة أن المرسوم مكتوب بثلاثة أنواع من الكتابة: الهيروغليفية، والديموطيقية، واليونانية القديمة.",
+      "وجود النص اليوناني ساعد العلماء على المقارنة بين الكتابات، والاقتراب من فهم الهيروغليفية.",
+      "إذن، قيمة الحجر ليست في شكله وحده، بل في النصوص التي حفظها. أي أثر تريد أن نحكي قصته بعد ذلك؟"
+    ]
+  }
+]

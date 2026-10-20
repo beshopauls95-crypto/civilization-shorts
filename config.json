@@ -1,0 +1,21 @@
+{
+  "owner": "beshopauls95-crypto",
+  "channel_name": "أسرار الحضارات | Civilization Secrets",
+  "visual_mode": "ai_generated_motion",
+  "allow_still_image_substitution": false,
+  "daily_production_enabled": false,
+  "generation_provider": null,
+  "max_paid_generation_spend": 0,
+  "target_seconds": [
+    30,
+    60
+  ],
+  "output": {
+    "width": 1080,
+    "height": 1920
+  },
+  "artifact_retention_days": 3,
+  "state_branch": "channel-state",
+  "approval_required_for_private_upload": true,
+  "separate_approval_required_for_publication": true
+}

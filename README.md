@@ -13,7 +13,7 @@ Source lives in src/pipeline.py, with dependencies in requirements.txt and scene
 - Recover/merge the previously prepared full research/review/publish code from the original workspace.
 - Configure a verified AI generation provider with an approved budget. No permanent free daily video-generation service is assumed.
 - Add independently researched topics and multiple generated scenes.
-- Implement and test durable owner approval/rejection and private-upload/publication workflows.
+- Exercise the implemented owner approval/rejection and private-upload/publication workflows after a real episode and YouTube authorization exist.
 - Create/authorize the YouTube channel and configure secrets securely.
 - Implement analytics and test real YouTube integration.
 
@@ -21,3 +21,12 @@ Source lives in src/pipeline.py, with dependencies in requirements.txt and scene
 Uses standard public GitHub-hosted Ubuntu compute; no paid AI generation API is called by this workflow. Three-day artifact retention; upload size capped at 50 MiB and repository artifacts checked against a conservative 180 MiB threshold before rendering. These controls do not inspect account-wide storage. No billing settings, secrets, repository visibility or authentication protections are changed.
 
 No YouTube integration has been tested. Do not treat this smoke test as a finished autonomous daily channel.
+
+## Verified cloud execution
+The first AI motion smoke test succeeded:
+https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39487278325
+
+## Owner review and safe publishing
+Review video records the exact run/hash approval or rejection on channel-state. Smoke demos cannot be approved for upload. Publish approved video supports owner-confirmed private upload and separate public publication; it remains blocked until YouTube OAuth and a real approved full episode exist. Channel analytics reports only real available data. See docs/acceptance.md for evidence and remaining tests.
+
+The daily workflow is a readiness report only. Daily AI generation is disabled. Do not enable a provider or start paid generation without explicit budget authorization.

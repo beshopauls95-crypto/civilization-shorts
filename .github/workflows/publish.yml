@@ -1,0 +1,49 @@
+name: Publish approved video
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Owner-approved production run'
+        type: string
+        required: true
+      manifest_sha256:
+        description: 'Exact approved manifest SHA256'
+        type: string
+        required: true
+      action:
+        description: 'Private upload or separately approved public publication'
+        type: choice
+        options: [upload_private, make_public]
+        required: true
+      confirmation:
+        description: 'UPLOAD:RUN_ID:MANIFEST_SHA256 or PUBLIC:YOUTUBE_ID'
+        type: string
+        required: true
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: channel-ledger
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.actor == 'beshopauls95-crypto' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m src.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_RUN: ${{ inputs.run_id }}
+          MANIFEST_SHA: ${{ inputs.manifest_sha256 }}
+          PUBLISH_ACTION: ${{ inputs.action }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}

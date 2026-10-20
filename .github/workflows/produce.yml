@@ -12,7 +12,7 @@ on:
         type: choice
         options: [smoke, episode]
 permissions:
-  contents: read
+  contents: write
   actions: read
 concurrency:
   group: ai-motion-production
@@ -26,6 +26,8 @@ jobs:
       PRODUCTION_MODE: ${{ inputs.mode || 'smoke' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.11'
@@ -43,9 +45,12 @@ jobs:
           if used>180*1024*1024:raise SystemExit("Conservative repository artifact budget reached")
           PY
       - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
       - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg fonts-dejavu-core
       - name: Produce AI moving-scene preview
-        run: python -m src.pipeline
+        run: python -m src.produce
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Enforce artifact size
         run: |
           python - <<'PY'

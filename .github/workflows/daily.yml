@@ -1,0 +1,24 @@
+name: Daily production readiness
+on:
+  schedule:
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: |
+          python - <<'PY'
+          import json,os
+          c=json.load(open("config.json"))
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f:
+              f.write("Daily autonomous AI generation is not configured. Daily generation is disabled; no provider API is called, no video uploaded.\n")
+          if c.get("daily_production_enabled"):
+              raise SystemExit("A tested generation adapter is still required. Do not enable daily production by flipping a flag alone.")
+          PY

@@ -55,7 +55,7 @@ def overlay(text, path):
     font=ImageFont.truetype(FONT,46)
     small=ImageFont.truetype(FONT,34)
     draw.rounded_rectangle((40,80,1040,215),20,fill=(10,15,23,225))
-    draw.text((540,120),"أسرار الحضارات",font=small,anchor="mm",direction="rtl",fill="#edca83")
+    draw.text((540,120),"حكاوى التاريخ",font=small,anchor="mm",direction="rtl",fill="#edca83")
     draw.text((540,175),"مشهد تخيلي مولد بالذكاء الاصطناعي",font=small,anchor="mm",direction="rtl",fill="white")
     lines=[]; line=""
     for word in text.split():

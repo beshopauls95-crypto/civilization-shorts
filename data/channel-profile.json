@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "status": "prepared_not_applied",
-  "channel_id": null,
+  "status": "existing_channel_selected_settings_pending",
+  "channel_id": "UCC5PfvQjAimGTBr0UJVo06A",
   "creation_terms_approved_by_owner": true,
-  "creation_verified": false,
-  "name": "أسرار الحضارات | Civilization Secrets",
-  "requested_handle": "@CivilizationSecretsAR95",
-  "handle_verified_available_at_form": true,
-  "description_ar": "رحلة قصيرة إلى أسرار التاريخ والحضارات القديمة، من مصر القديمة إلى حضارات العالم.\nنحكي قصصًا موثقة، ونوضح الفرق بين الحقائق والنظريات والأساطير، مع مصادر كل حلقة في وصف الفيديو.\nالمشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست تصويرًا تاريخيًا أو دليلًا أثريًا.\nفيديوهات عربية قصيرة من 30 إلى 60 ثانية.",
+  "creation_verified": true,
+  "name": "حكاوى التاريخ",
+  "requested_handle": "@حكاوىالتاريخ-ص4ث",
+  "handle_verified_available_at_form": false,
+  "description_ar": "حكاوى التاريخ: رحلة قصيرة إلى أسرار الحضارات القديمة، من مصر القديمة إلى حضارات العالم.\nنحكي قصصًا موثقة، ونوضح الفرق بين الحقائق والنظريات والأساطير، مع مصادر كل حلقة في وصف الفيديو.\nالمشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست تصويرًا تاريخيًا أو دليلًا أثريًا.\nفيديوهات عربية قصيرة من 30 إلى 60 ثانية.",
   "keywords": [
-    "أسرار الحضارات",
+    "حكاوى التاريخ",
     "تاريخ",
     "مصر القديمة",
     "حضارات قديمة",
     "اكتشافات أثرية",
     "علم الآثار",
     "حجر رشيد",
-    "Civilization Secrets",
+    "History Shorts",
     "Ancient Egypt"
   ],
   "language": "ar",
@@ -33,7 +33,7 @@
     "comments": "hold_potentially_inappropriate_for_review"
   },
   "audience_note": "General-audience history documentary content; reassess each episode rather than using child-directed packaging.",
-  "description_template": "{episode_summary}\n\nالمصادر:\n{sources}\n\nتنويه: المشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست لقطات تاريخية حقيقية. نوضح النظريات والادعاءات المختلف عليها داخل الحلقة.\n\n#أسرار_الحضارات #تاريخ #Shorts",
+  "description_template": "{episode_summary}\n\nالمصادر:\n{sources}\n\nتنويه: المشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست لقطات تاريخية حقيقية. نوضح النظريات والادعاءات المختلف عليها داخل الحلقة.\n\n#حكاوى_التاريخ #تاريخ #Shorts",
   "homepage_plan": [
     "Shorts"
   ],
@@ -44,7 +44,7 @@
     "arabic_font": "Tajawal",
     "english_font": "Inter",
     "banner_line": "قصص موثقة من التاريخ • مشاهد تخيلية بالذكاء الاصطناعي",
-    "assets_status": "not_created_in_this_setup"
+    "assets_status": "previously_generated_designs_not_uploaded_keep_existing_channel_assets"
   },
   "integration": {
     "youtube_api_enabled": false,
@@ -59,8 +59,9 @@
     "public_release": "separate explicit YouTube video ID approval"
   },
   "blockers": [
-    "Browser control unavailable in current turn; creation form not submitted or reverified.",
+    "Live Studio settings verification pending current TinyFish run.",
     "AI provider not configured for daily multi-scene generation.",
     "YouTube OAuth and safe upload tests pending."
-  ]
+  ],
+  "uses_existing_channel": true
 }

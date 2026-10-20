@@ -42,9 +42,9 @@ def run(api, channel_id, profile, action="check"):
         return {"status": "connected", "channel_id": channel_id,
                 "title": channel.get("snippet", {}).get("title", ""),
                 "videos_uploaded": 0}
-    # Protect the pre-existing personal channel from accidental rebranding.
+    # Require the owner-selected channel name before changing metadata.
     if channel.get("snippet", {}).get("title") != profile["name"]:
-        raise PermissionError("Create/name the dedicated project channel in Studio first")
+        raise PermissionError("Selected channel name does not match the project profile")
     body = branding_body(channel, profile)
     api.channels().update(part="brandingSettings", body=body).execute()
     verified = select_channel(api, channel_id).get("brandingSettings", {}).get("channel", {})

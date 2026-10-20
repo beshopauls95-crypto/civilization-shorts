@@ -1,6 +1,6 @@
 {
   "owner": "beshopauls95-crypto",
-  "channel_name": "أسرار الحضارات | Civilization Secrets",
+  "channel_name": "حكاوى التاريخ",
   "visual_mode": "ai_generated_motion",
   "allow_still_image_substitution": false,
   "daily_production_enabled": false,
@@ -17,5 +17,6 @@
   "artifact_retention_days": 3,
   "state_branch": "channel-state",
   "approval_required_for_private_upload": true,
-  "separate_approval_required_for_publication": true
+  "separate_approval_required_for_publication": true,
+  "channel_id": "UCC5PfvQjAimGTBr0UJVo06A"
 }

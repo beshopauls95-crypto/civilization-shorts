@@ -1,7 +1,13 @@
-name: Upload technical sample privately
+name: Upload or publish approved technical sample
 on:
   workflow_dispatch:
     inputs:
+      action:
+        description: 'Upload private first, or separately approve public sample'
+        type: choice
+        options: [upload_private, make_public]
+        default: upload_private
+        required: true
       run_id:
         description: 'Exact successful smoke production run ID'
         required: true
@@ -11,7 +17,7 @@ on:
         required: true
         type: string
       confirmation:
-        description: 'TEST_PRIVATE:RUN_ID:MANIFEST_SHA256'
+        description: 'TEST_PRIVATE:RUN:SHA or TEST_PUBLIC:RUN:SHA:YOUTUBE_ID'
         required: true
         type: string
 permissions:
@@ -35,6 +41,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m src.upload_test
         env:
+          TEST_ACTION: ${{ inputs.action }}
           GH_TOKEN: ${{ github.token }}
           TARGET_RUN: ${{ inputs.run_id }}
           MANIFEST_SHA: ${{ inputs.manifest_sha256 }}

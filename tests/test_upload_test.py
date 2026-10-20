@@ -1,5 +1,5 @@
 import unittest
-from src.upload_test import validate_test
+from src.upload_test import validate_test, authorize_public_test
 from src.publish import authorize
 R="123";D="a"*64
 M={"run_id":R,"mode":"smoke","demo":True}
@@ -22,3 +22,23 @@ class TechnicalUploadTests(unittest.TestCase):
     def test_sample_still_cannot_go_public(self):
         record={**M,"manifest_sha256":D,"status":"uploaded_private","youtube_id":"test"}
         with self.assertRaises(PermissionError):authorize(record,"make_public",R,D,"PUBLIC:test")
+
+class PublicTechnicalUploadTests(unittest.TestCase):
+    def record(self):
+        return {**M,"manifest_sha256":D,"status":"uploaded_private","youtube_id":"Abc12345xyz"}
+    def confirmation(self):
+        return "TEST_PUBLIC:"+R+":"+D+":Abc12345xyz"
+    def test_exact_public_command(self):
+        self.assertEqual(authorize_public_test(self.record(),R,D,self.confirmation()),"Abc12345xyz")
+    def test_private_command_not_public_consent(self):
+        with self.assertRaises(PermissionError):authorize_public_test(self.record(),R,D,C)
+    def test_pending_upload_not_public(self):
+        with self.assertRaises(PermissionError):authorize_public_test({**self.record(),"status":"upload_in_progress"},R,D,self.confirmation())
+    def test_wrong_manifest_not_public(self):
+        with self.assertRaises(PermissionError):authorize_public_test(self.record(),R,"b"*64,self.confirmation())
+    def test_wrong_run_not_public(self):
+        with self.assertRaises(PermissionError):authorize_public_test(self.record(),"456",D,self.confirmation())
+    def test_wrong_video_not_public(self):
+        with self.assertRaises(PermissionError):authorize_public_test(self.record(),R,D,"TEST_PUBLIC:"+R+":"+D+":OtherVid123")
+    def test_missing_record_not_public(self):
+        with self.assertRaises(PermissionError):authorize_public_test(None,R,D,self.confirmation())

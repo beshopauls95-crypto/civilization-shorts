@@ -52,17 +52,24 @@
     "github_secret_configured": false,
     "expected_channel_id_variable": "YOUTUBE_CHANNEL_ID",
     "oauth_secret_name": "YOUTUBE_OAUTH_JSON",
-    "billing_enabled_by_this_project": false
+    "billing_enabled_by_this_project": false,
+    "google_cloud_project_id": "hekawy-history-shorts",
+    "google_cloud_project_created": true,
+    "youtube_api_status": "enable_clicked_verification_pending",
+    "google_cloud_country": "Egypt_not_verified",
+    "google_cloud_terms_status": "accepted_reported_with_conditional_starter_tier_reference"
   },
   "approvals": {
     "private_upload": "explicit exact video approval",
-    "public_release": "separate explicit YouTube video ID approval"
+    "public_release": "separate explicit YouTube video ID approval",
+    "public_sample_requested": true
   },
   "blockers": [
-    "Description field did not accept text in TinyFish; description not saved.",
-    "Channel keywords/comments controls pending; country selected but persistence needs recheck.",
-    "YouTube OAuth secret and channel variable not configured; no uploads yet.",
-    "AI motion generation provider pending."
+    "Google Cloud country Egypt not verified; preceding run reported a different last visible country.",
+    "YouTube API enable clicked; final verification run pending.",
+    "OAuth app/client, secure token grant and GitHub Secret still not configured.",
+    "Description, keywords and comments settings pending.",
+    "No YouTube video has been uploaded or published."
   ],
   "uses_existing_channel": true,
   "saved_verified": {

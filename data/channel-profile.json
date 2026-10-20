@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_applied",
+  "channel_id": null,
+  "creation_terms_approved_by_owner": true,
+  "creation_verified": false,
+  "name": "أسرار الحضارات | Civilization Secrets",
+  "requested_handle": "@CivilizationSecretsAR95",
+  "handle_verified_available_at_form": true,
+  "description_ar": "رحلة قصيرة إلى أسرار التاريخ والحضارات القديمة، من مصر القديمة إلى حضارات العالم.\nنحكي قصصًا موثقة، ونوضح الفرق بين الحقائق والنظريات والأساطير، مع مصادر كل حلقة في وصف الفيديو.\nالمشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست تصويرًا تاريخيًا أو دليلًا أثريًا.\nفيديوهات عربية قصيرة من 30 إلى 60 ثانية.",
+  "keywords": [
+    "أسرار الحضارات",
+    "تاريخ",
+    "مصر القديمة",
+    "حضارات قديمة",
+    "اكتشافات أثرية",
+    "علم الآثار",
+    "حجر رشيد",
+    "Civilization Secrets",
+    "Ancient Egypt"
+  ],
+  "language": "ar",
+  "country": "EG",
+  "format": "shorts",
+  "upload_defaults": {
+    "privacy": "private",
+    "category_id": "27",
+    "video_language": "ar",
+    "audio_language": "ar",
+    "made_for_kids": false,
+    "contains_synthetic_media": true,
+    "license": "youtube",
+    "comments": "hold_potentially_inappropriate_for_review"
+  },
+  "audience_note": "General-audience history documentary content; reassess each episode rather than using child-directed packaging.",
+  "description_template": "{episode_summary}\n\nالمصادر:\n{sources}\n\nتنويه: المشاهد إعادة تخيل فنية مولدة بالذكاء الاصطناعي، وليست لقطات تاريخية حقيقية. نوضح النظريات والادعاءات المختلف عليها داخل الحلقة.\n\n#أسرار_الحضارات #تاريخ #Shorts",
+  "homepage_plan": [
+    "Shorts"
+  ],
+  "brand": {
+    "background": "#10151D",
+    "accent": "#D7B56D",
+    "text": "#F5F0E6",
+    "arabic_font": "Tajawal",
+    "english_font": "Inter",
+    "banner_line": "قصص موثقة من التاريخ • مشاهد تخيلية بالذكاء الاصطناعي",
+    "assets_status": "not_created_in_this_setup"
+  },
+  "integration": {
+    "youtube_api_enabled": false,
+    "oauth_configured": false,
+    "github_secret_configured": false,
+    "expected_channel_id_variable": "YOUTUBE_CHANNEL_ID",
+    "oauth_secret_name": "YOUTUBE_OAUTH_JSON",
+    "billing_enabled_by_this_project": false
+  },
+  "approvals": {
+    "private_upload": "explicit exact video approval",
+    "public_release": "separate explicit YouTube video ID approval"
+  },
+  "blockers": [
+    "Browser control unavailable in current turn; creation form not submitted or reverified.",
+    "AI provider not configured for daily multi-scene generation.",
+    "YouTube OAuth and safe upload tests pending."
+  ]
+}

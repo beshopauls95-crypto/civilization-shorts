@@ -1,32 +1,30 @@
-# Channel setup status
+# Current channel setup status
 
-## Verified 2026-10-20
-The owner approved channel creation, the displayed YouTube creation terms, and one TinyFish attempt capped at USD 1. The saved Google session was verified signed in to the expected owner account. The only observed existing channel was حكاوى التاريخ, ID UCC5PfvQjAimGTBr0UJVo06A. It was not modified.
+Owner selected existing channel **حكاوى التاريخ**, ID **UCC5PfvQjAimGTBr0UJVo06A**. Keep its name/handle and existing images. No new channel is needed.
 
-TinyFish run: https://agent.tinyfish.ai/runs/440fb092-46d7-44e2-98be-4fa6b84023c2
-Terminal status completed describes an unsuccessful task: channel creation not started, no channel profile/settings saved, no videos uploaded or published. Navigation to the creation route returned the homepage and account-menu interactions could not proceed. No screenshot was returned. This is a browser interaction failure, not evidence of wrong credentials or bot detection.
-Run metadata: 32 steps, 454 seconds. Wallet balance observed before USD 10.84 and after USD 10.328 (difference USD 0.512; not an itemized invoice). No top-up, subscription or auto-reload enabled. No further metered attempt started.
+## Live YouTube Studio results
+TinyFish run https://agent.tinyfish.ai/runs/847e7528-c670-4390-9d7a-383208d723ef
+- Saved with success toast: upload visibility Private, video language Arabic, category Education.
+- Egypt selected; report mixes selected/saved wording, so persistence needs recheck.
+- Audience observed as review per video; not changed.
+- Keywords and comment moderation not configured.
 
-The dedicated project channel is NOT created/verified. Avatar and banner designs were generated in ChatGPT, but not uploaded; banner final sizing remains pending.
+Description-only run https://agent.tinyfish.ai/runs/6902a106-311f-4355-83be-da16e229e7a3 ended without saving: custom textbox did not accept text, counter remained 0/1000. No description or profile Publish confirmed.
 
-## Implemented code
-Prepared profile: data/channel-profile.json.
-Manual workflow: Check or configure YouTube channel. Defaults to read-only authorization/channel-ID verification. apply_profile sets description, keywords, language and country only after verifying the dedicated channel name and preserving existing unrelated mutable fields. No channel creation, image upload or video upload is performed by this workflow.
+Before these, unsuccessful channel-creation run:
+https://agent.tinyfish.ai/runs/440fb092-46d7-44e2-98be-4fa6b84023c2
 
-Cloud tests: 21 passed:
-https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39491181076
-AI-motion sample production also passed:
-https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39491181166
+Wallet observed USD 10.84 before this setup work, USD 9.848 after three runs: USD 0.992 difference, not an itemized invoice. No subscription/top-up/auto-reload enabled. No additional paid run authorized beyond the USD 1 ceiling.
 
-## Remaining
-- Complete dedicated channel creation in a working YouTube interface.
-- Record verified dedicated channel ID and apply profile/settings.
-- Finish and upload avatar/banner; configure Studio upload and audience/comment settings.
-- Create Google Cloud project / enable YouTube Data API / authorize OAuth securely.
-- Store YOUTUBE_OAUTH_JSON secret and YOUTUBE_CHANNEL_ID variable without exposing credentials.
-- Perform live read-only connection check, profile application, and separately approved private-upload test.
-- Configure sustainable AI motion generation and create a complete 30–60-second multi-scene episode.
+## Cloud implementation
+Project branding and configured channel ID now match حكاوى التاريخ.
+Production and 21 then-existing safety tests passed:
+https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39493863344
+https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39493863315
 
-No workflow success, generic continue message, or account sign-in constitutes video approval.
+The owner subsequently explicitly requested uploading the technical sample. A separate **Upload technical sample privately** workflow now supports smoke demos only after exact run/manifest confirmation. It always inserts Private, records an idempotency ledger before upload, verifies channel/privacy after upload, and has no publication operation. Normal production review/publication still refuses demos. New tests must pass CI; a real YouTube upload has NOT occurred.
 
-Reference: https://developers.google.com/youtube/data/reference/rest/v3/channels/update
+## Blocking dependencies
+YOUTUBE_OAUTH_JSON GitHub Secret and YOUTUBE_CHANNEL_ID repository variable are not configured. OAuth authorization and live connection/upload tests remain pending. Never put credentials in workflow inputs, artifacts, code or chat.
+
+Remaining Studio setup: description, keywords, comments, audience review, verify country, review current artwork/homepage. Multi-scene 30–60 second episodes and sustainable free AI generation also remain pending.

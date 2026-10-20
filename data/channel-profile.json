@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "existing_channel_selected_settings_pending",
+  "status": "studio_partially_configured",
   "channel_id": "UCC5PfvQjAimGTBr0UJVo06A",
   "creation_terms_approved_by_owner": true,
   "creation_verified": true,
@@ -59,9 +59,21 @@
     "public_release": "separate explicit YouTube video ID approval"
   },
   "blockers": [
-    "Live Studio settings verification pending current TinyFish run.",
-    "AI provider not configured for daily multi-scene generation.",
-    "YouTube OAuth and safe upload tests pending."
+    "Description field did not accept text in TinyFish; description not saved.",
+    "Channel keywords/comments controls pending; country selected but persistence needs recheck.",
+    "YouTube OAuth secret and channel variable not configured; no uploads yet.",
+    "AI motion generation provider pending."
   ],
-  "uses_existing_channel": true
+  "uses_existing_channel": true,
+  "saved_verified": {
+    "upload_visibility": "private",
+    "video_language": "ar",
+    "category_id": "27"
+  },
+  "observed_not_fully_verified": {
+    "country": "EG",
+    "audience": "review_per_video"
+  },
+  "description_saved": false,
+  "keywords_saved": false
 }

@@ -1,0 +1,43 @@
+name: Upload technical sample privately
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Exact successful smoke production run ID'
+        required: true
+        type: string
+      manifest_sha256:
+        description: 'SHA256 of the reviewed manifest'
+        required: true
+        type: string
+      confirmation:
+        description: 'TEST_PRIVATE:RUN_ID:MANIFEST_SHA256'
+        required: true
+        type: string
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: channel-ledger
+  cancel-in-progress: false
+jobs:
+  upload_test:
+    if: github.actor == 'beshopauls95-crypto' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m src.upload_test
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_RUN: ${{ inputs.run_id }}
+          MANIFEST_SHA: ${{ inputs.manifest_sha256 }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          YOUTUBE_OAUTH_JSON: ${{ secrets.YOUTUBE_OAUTH_JSON }}
+          YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}

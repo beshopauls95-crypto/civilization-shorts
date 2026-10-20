@@ -47,7 +47,7 @@
     "assets_status": "previously_generated_designs_not_uploaded_keep_existing_channel_assets"
   },
   "integration": {
-    "youtube_api_enabled": false,
+    "youtube_api_enabled": true,
     "oauth_configured": false,
     "github_secret_configured": false,
     "expected_channel_id_variable": "YOUTUBE_CHANNEL_ID",
@@ -55,9 +55,12 @@
     "billing_enabled_by_this_project": false,
     "google_cloud_project_id": "hekawy-history-shorts",
     "google_cloud_project_created": true,
-    "youtube_api_status": "enable_clicked_verification_pending",
+    "youtube_api_status": "verified_API_Enabled_Manage_button",
     "google_cloud_country": "Egypt_not_verified",
-    "google_cloud_terms_status": "accepted_reported_with_conditional_starter_tier_reference"
+    "google_cloud_terms_status": "accepted_reported_with_conditional_starter_tier_reference",
+    "oauth_app_status": "metadata_prepared_policy_acceptance_pending",
+    "oauth_app_name": "Hekawy History Shorts",
+    "oauth_client_created": false
   },
   "approvals": {
     "private_upload": "explicit exact video approval",
@@ -66,10 +69,10 @@
   },
   "blockers": [
     "Google Cloud country Egypt not verified; preceding run reported a different last visible country.",
-    "YouTube API enable clicked; final verification run pending.",
     "OAuth app/client, secure token grant and GitHub Secret still not configured.",
     "Description, keywords and comments settings pending.",
-    "No YouTube video has been uploaded or published."
+    "No YouTube video has been uploaded or published.",
+    "Google API Services User Data Policy acceptance and OAuth/client authorization pending."
   ],
   "uses_existing_channel": true,
   "saved_verified": {

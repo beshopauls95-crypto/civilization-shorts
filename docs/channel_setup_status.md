@@ -44,3 +44,26 @@ Remaining Studio setup: description, keywords, comments, audience review, verify
 
 Cloud setup run:
 https://agent.tinyfish.ai/runs/e264eb39-d2c8-4ca1-8872-feac87029cc5
+
+
+## OAuth preparation verified after cancelling the hung check
+The hung enable-check run was explicitly cancelled at the owner's request.
+Run https://agent.tinyfish.ai/runs/de8f30cb-d3e3-4812-bce5-9a758b1f6dbe verified:
+- YouTube Data API v3 shows API Enabled / Manage in project hekawy-history-shorts.
+- OAuth metadata prepared: Hekawy History Shorts, verified owner support/contact, External audience. NOT submitted.
+- Final Finish checkbox is unchecked: "I agree to the Google API Services: User Data Policy."
+  Policy: https://developers.google.com/terms/api-services-user-data-policy
+- No OAuth clients, secrets, tokens, scopes or test users created/granted.
+- Planned Web client: GitHub Shorts Pipeline; redirect https://developers.google.com/oauthplayground.
+- Country Egypt remains unverified.
+- No video has been uploaded or published.
+
+Current exact regenerated technical-sample reference:
+- Run 39501070032
+- Commit b1549783b753143d723c719e3e8144b134e8778e
+- Manifest SHA256 885d1fcebcaf70bbfadbc41c7ed920907eecce2580ef843b9a44bcd84afc98f4
+- Production succeeded; this is still the five-second AI-motion demo, not a full episode.
+
+Public technical sample path now exists with a separate exact TEST_PUBLIC confirmation and verified channel/video identity. Production and 35 tests passed:
+https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39500032193
+https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39500032204

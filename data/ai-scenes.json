@@ -1,0 +1,22 @@
+{
+  "title": "حجر رشيد — اختبار مشهد تخيلي متحرك",
+  "demo": true,
+  "sources": [
+    {
+      "publisher": "British Museum",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24",
+      "note": "Record describes Ptolemy V's decree, 196 BC, three scripts. The artisan scene is illustrative and does not establish its exact production process."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "rosetta-motion-demo-01",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TMnNDhpxdTvOMS02spBf/9e2b8db7-24ed-4003-ab66-4781f076b772_seed1482773213_1792523966605_b92fb9b2.mp4",
+      "narration": "هكذا نتخيل نقش مرسوم في مصر القديمة.",
+      "provider": "OpenArt / PixVerse V6",
+      "history_id": "czLrMSTmoOig0MsUT1rm",
+      "generated": true,
+      "license_note": "Generated on the connected account; retain provider terms. Not a Commons archival asset."
+    }
+  ]
+}

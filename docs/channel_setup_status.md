@@ -28,3 +28,19 @@ The owner subsequently explicitly requested uploading the technical sample. A se
 YOUTUBE_OAUTH_JSON GitHub Secret and YOUTUBE_CHANNEL_ID repository variable are not configured. OAuth authorization and live connection/upload tests remain pending. Never put credentials in workflow inputs, artifacts, code or chat.
 
 Remaining Studio setup: description, keywords, comments, audience review, verify country, review current artwork/homepage. Multi-scene 30–60 second episodes and sustainable free AI generation also remain pending.
+
+
+## Latest Google Cloud progress (owner approved general terms)
+- Project created: Hekawy History Shorts, ID hekawy-history-shorts.
+- Reported no billing linked and no Free Trial activated.
+- The accepted checkbox also referenced conditional Starter Tier terms; retain this detail rather than saying general terms only.
+- Egypt selection was NOT verified. The last reported dropdown state was another country. Do not mark country setup complete.
+- API library reached; initial run did not click Enable.
+- A separate narrow enable run is pending final report: https://agent.tinyfish.ai/runs/c4d24fa3-77f2-4a89-a8af-c0b4055be3ea
+  Last step: waiting/reporting after Enable click; enabled status not yet verified.
+- OAuth metadata, client, scopes, tokens and GitHub secrets are still not configured.
+- Owner explicitly requested the five-second sample PUBLIC. This is intent, not evidence of upload/publication. The existing sample upload workflow remains private-only, and ordinary publishing continues to reject demos.
+- No actual YouTube upload or publication has occurred.
+
+Cloud setup run:
+https://agent.tinyfish.ai/runs/e264eb39-d2c8-4ca1-8872-feac87029cc5

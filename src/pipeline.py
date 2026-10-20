@@ -154,6 +154,8 @@ def main():
         state.update("production/index",remember)
     dump("manifest.json",manifest)
     sha=hashlib.sha256((OUT/"manifest.json").read_bytes()).hexdigest()
+    print("Review manifest SHA256:",sha)
+    print("Review run ID:",os.environ.get("GITHUB_RUN_ID"))
     bundle=OUT/"bundle";bundle.mkdir(exist_ok=True)
     import shutil
     for n in names+["manifest.json"]:shutil.copy2(OUT/n,bundle/n)

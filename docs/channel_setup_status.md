@@ -1,69 +1,51 @@
 # Current channel setup status
 
-Owner selected existing channel **حكاوى التاريخ**, ID **UCC5PfvQjAimGTBr0UJVo06A**. Keep its name/handle and existing images. No new channel is needed.
+Owner selected existing channel **حكاوى التاريخ**, ID **UCC5PfvQjAimGTBr0UJVo06A**, handle **@حكاوىالتاريخ-ص4ث**. Keep its name and handle; no new channel is needed.
 
-## Live YouTube Studio results
-TinyFish run https://agent.tinyfish.ai/runs/847e7528-c670-4390-9d7a-383208d723ef
-- Saved with success toast: upload visibility Private, video language Arabic, category Education.
-- Egypt selected; report mixes selected/saved wording, so persistence needs recheck.
-- Audience observed as review per video; not changed.
-- Keywords and comment moderation not configured.
+## Actual sample publication
 
-Description-only run https://agent.tinyfish.ai/runs/6902a106-311f-4355-83be-da16e229e7a3 ended without saving: custom textbox did not accept text, counter remained 0/1000. No description or profile Publish confirmed.
+The owner explicitly approved public publication of the five-second technical AI-motion sample. Uploaded through the signed-in YouTube Studio UI, with Arabic title/description, historical-source link, not-made-for-kids audience, no paid promotion, and **Yes, AI was used** disclosure. YouTube checks completed with **No issues found**. Public was selected and Publish submitted. Studio then displayed **Video published** and publication date Oct 21, 2026.
 
-Before these, unsuccessful channel-creation run:
-https://agent.tinyfish.ai/runs/440fb092-46d7-44e2-98be-4fa6b84023c2
+- Video ID: **q4rSN6BEG6Q**
+- Studio-returned link: https://youtube.com/shorts/q4rSN6BEG6Q
+- Title: حكاوى التاريخ | عينة فيديو مولدة بالذكاء الاصطناعي
+- Uploaded file: civilization-ai-motion-sample.mp4 (968731 bytes), the previously reviewed Arabic narrated AI-motion sample.
+- This is a roughly five-second technical sample, NOT a completed 30–60-second episode. Source AI motion was 360x640, scaled to 1080x1920.
+- Method: manual Studio UI under explicit owner authorization, **not GitHub Actions or OAuth API**.
+- Opening the public watch page was denied by the browser origin permission gate. Publication is verified by Studio's success dialog; independent public playback was not verified.
+- **Do not run the technical sample upload workflow for this already-published sample or create a duplicate.** Its local Library sample is not the later regenerated run's exact artifact. No GitHub upload ledger entry is claimed for this UI publication.
 
-Wallet observed USD 10.84 before this setup work, USD 9.848 after three runs: USD 0.992 difference, not an itemized invoice. No subscription/top-up/auto-reload enabled. No additional paid run authorized beyond the USD 1 ceiling.
+## Saved YouTube Studio settings
 
-## Cloud implementation
-Project branding and configured channel ID now match حكاوى التاريخ.
-Production and 21 then-existing safety tests passed:
-https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39493863344
-https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39493863315
+- Channel description entered and profile Publish confirmed with **Changes published**. Describes documented history, facts/theories/myths, AI imaginative reconstruction, and 30–60-second episodes with shorter technical samples.
+- Country of residence: Egypt selected.
+- Ten keyword chips added: حكاوى التاريخ, أسرار الحضارات, تاريخ, مصر القديمة, حضارات قديمة, اكتشافات أثرية, علم الآثار, حجر رشيد, Civilization Secrets, Ancient Egypt.
+- Channel audience: not made for kids selected, matching the intended general audience.
+- Comment moderation inspected: **Basic — Hold potentially inappropriate comments** selected.
+- Combined settings saved and **Settings saved** visibly confirmed.
+- Previously saved defaults: Private, Arabic, Education. The uploaded sample inherited Arabic and Education; Public was explicitly selected only for this approved sample.
+- Avatar/banner have not been replaced. No account security, recovery, billing, permissions, or channel visibility changes were made.
 
-The owner subsequently explicitly requested uploading the technical sample. A separate **Upload technical sample privately** workflow now supports smoke demos only after exact run/manifest confirmation. It always inserts Private, records an idempotency ledger before upload, verifies channel/privacy after upload, and has no publication operation. Normal production review/publication still refuses demos. New tests must pass CI; a real YouTube upload has NOT occurred.
+## Cloud implementation and validation
 
-## Blocking dependencies
-YOUTUBE_OAUTH_JSON GitHub Secret and YOUTUBE_CHANNEL_ID repository variable are not configured. OAuth authorization and live connection/upload tests remain pending. Never put credentials in workflow inputs, artifacts, code or chat.
-
-Remaining Studio setup: description, keywords, comments, audience review, verify country, review current artwork/homepage. Multi-scene 30–60 second episodes and sustainable free AI generation also remain pending.
-
-
-## Latest Google Cloud progress (owner approved general terms)
-- Project created: Hekawy History Shorts, ID hekawy-history-shorts.
-- Reported no billing linked and no Free Trial activated.
-- The accepted checkbox also referenced conditional Starter Tier terms; retain this detail rather than saying general terms only.
-- Egypt selection was NOT verified. The last reported dropdown state was another country. Do not mark country setup complete.
-- API library reached; initial run did not click Enable.
-- A separate narrow enable run is pending final report: https://agent.tinyfish.ai/runs/c4d24fa3-77f2-4a89-a8af-c0b4055be3ea
-  Last step: waiting/reporting after Enable click; enabled status not yet verified.
-- OAuth metadata, client, scopes, tokens and GitHub secrets are still not configured.
-- Owner explicitly requested the five-second sample PUBLIC. This is intent, not evidence of upload/publication. The existing sample upload workflow remains private-only, and ordinary publishing continues to reject demos.
-- No actual YouTube upload or publication has occurred.
-
-Cloud setup run:
-https://agent.tinyfish.ai/runs/e264eb39-d2c8-4ca1-8872-feac87029cc5
-
-
-## OAuth preparation verified after cancelling the hung check
-The hung enable-check run was explicitly cancelled at the owner's request.
-Run https://agent.tinyfish.ai/runs/de8f30cb-d3e3-4812-bce5-9a758b1f6dbe verified:
-- YouTube Data API v3 shows API Enabled / Manage in project hekawy-history-shorts.
-- OAuth metadata prepared: Hekawy History Shorts, verified owner support/contact, External audience. NOT submitted.
-- Final Finish checkbox is unchecked: "I agree to the Google API Services: User Data Policy."
-  Policy: https://developers.google.com/terms/api-services-user-data-policy
-- No OAuth clients, secrets, tokens, scopes or test users created/granted.
-- Planned Web client: GitHub Shorts Pipeline; redirect https://developers.google.com/oauthplayground.
-- Country Egypt remains unverified.
-- No video has been uploaded or published.
-
-Current exact regenerated technical-sample reference:
-- Run 39501070032
-- Commit b1549783b753143d723c719e3e8144b134e8778e
-- Manifest SHA256 885d1fcebcaf70bbfadbc41c7ed920907eecce2580ef843b9a44bcd84afc98f4
-- Production succeeded; this is still the five-second AI-motion demo, not a full episode.
-
-Public technical sample path now exists with a separate exact TEST_PUBLIC confirmation and verified channel/video identity. Production and 35 tests passed:
+Production and 35 safety tests passed:
 https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39500032193
 https://github.com/beshopauls95-crypto/civilization-shorts/actions/runs/39500032204
+
+Latest regenerated technical sample (distinct artifact from the UI upload): run 39501070032; commit b1549783b753143d723c719e3e8144b134e8778e; manifest SHA256 885d1fcebcaf70bbfadbc41c7ed920907eecce2580ef843b9a44bcd84afc98f4. Production and safety run 39501070113 succeeded.
+
+Normal production requires owner approval tied to exact run/manifest and refuses smoke demos. Separate technical-sample workflow supports private upload then exact public confirmation. Workflow success alone is never approval.
+
+## Google Cloud and current blocker
+
+- Project hekawy-history-shorts exists; no billing/trial activation reported.
+- YouTube Data API v3 Enabled / Manage was verified by run de8f30cb-d3e3-4812-bce5-9a758b1f6dbe.
+- OAuth metadata prepared: Hekawy History Shorts, External audience, owner support/contact.
+- Owner authorized the displayed User Data Policy, Web client GitHub Shorts Pipeline, OAuth Playground redirect, offline youtube.force-ssl access, and secure GitHub secret storage.
+- Latest run b72d2494-1745-4593-8491-283c2a213d8b stopped at Google password sign-in. Its saved Google session may have expired. No successful OAuth client/token/secret transfer or live API connection test was reported.
+- YOUTUBE_OAUTH_JSON and YOUTUBE_CHANNEL_ID are not verified configured. Never expose credentials in chat, repository, workflow inputs, logs, artifacts, or screenshots.
+- Do not retry paid automation before renewing the relevant sign-in. Existing authorized spending caps still apply; no top-up, subscription, trial, or auto-reload is authorized.
+
+## Remaining work
+
+Renew Google Cloud sign-in and complete secure OAuth/GitHub setup; run read-only connection test without duplicate sample upload. Add appropriate channel artwork. Build a genuine 30–60-second multi-scene episode and configure a sustainable AI video-generation provider. Daily readiness scheduling does not yet produce a new complete AI episode every day. Real analytics and API upload tests remain incomplete.
